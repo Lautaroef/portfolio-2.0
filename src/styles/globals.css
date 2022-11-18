@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Poppins:wght@100;200;300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Gotham Medium";
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Fonts */
+@font-face {
+  font-family: "Gotham Medium";
+  src: url(../fonts/Gotham\ Medium.otf);
+}
+@font-face {
+  font-family: "Gotham LsLight";
+  src: url(../fonts/Gotham\ Book.otf);
+}
+@font-face {
+  font-family: "Gotham Light";
+  src: url(../fonts/Gotham\ Light.otf);
+}
+
+@font-face {
+  font-family: "Quite Magical";
+  src: url(../fonts/QuiteMagicalRegular-8VA2.ttf);
+  font-style: normal;
+  font-size: 26px;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+}
+
+/* Hamburger menu */
+span.MuiTypography-root {
+  font-size: 1.15rem;
+}
+
+/* Scroll down image */
+.center-image {
+  margin: auto;
+}
+.center-image img {
+  width: 37.5px;
+}
+
+/* Scroll bar customization */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background: #dfdfdf;
+  border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404364e8;
+}
+
+/* Typed Animation | Home Section */
+.custom-fade-out {
+  animation: new-typed-anim 900ms linear;
+}
+
+@keyframes new-typed-anim {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

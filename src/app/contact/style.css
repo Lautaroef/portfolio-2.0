@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
+.contact-header * {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.contact-header {
+  max-width: 900px;
+  margin: 0 auto 5rem auto;
+}
+
+form {
+  width: 500px;
+  max-width: 100%;
+  margin: 1.25rem auto;
+  padding: 1.5rem 1.8rem;
+  border-radius: 6px;
+  /* background-color: #fff; */
+}
+
+/* sub-titles */
+.inputBox h2 {
+  font-size: 14px; /* 14px */
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.inputBox small {
+  margin-left: 4px;
+  color: #d32f2f;
+}
+
+.inputBox input,
+.inputBox textarea {
+  width: 100%;
+  height: 50px;
+  margin: 0 0 13px 0;
+  padding: 8px 16px 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  line-height: 20px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #616a66ec;
+}
+
+.inputBox textarea {
+  height: 200px;
+  max-width: 100%;
+  margin: 0 0 13px 0;
+}
+
+.inputBox input:focus,
+.inputBox textarea:focus {
+  outline: none;
+}
+
+.inputBox input[type="submit"] {
+  background: #0014ff; /* 0014ff */
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 4px;
+  border: 1px solid #0014ff; /* 0014ff */
+  transition: all 0.3s;
+}
+
+.inputBox input[type="submit"]:hover {
+  background: #0014ffc7;
+  border-color: #0014ff; /* 0014ff */
+  color: #fff;
+  transform: translate3d(0, 1px, 0);
+  -webkit-transform: translate3d(0, 1px, 0);
+}
+
+/* Fast contact */
+.fast-contact {
+  display: grid;
+  grid-template-columns: repeat(2, auto 1fr);
+  align-items: center;
+  gap: 1rem;
+  width: 50%;
+  min-width: max-content;
+  margin: auto;
+  padding: 0.5rem 0.8rem;
+  border-radius: 2px;
+}
+
+.fast-contact svg {
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  font-size: 1.8rem;
+  border-radius: 50%;
+}
+
+.fast-contact p,
+.fast-contact a {
+  margin-left: -3px;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.fast-contact p:hover,
+.fast-contact a:hover {
+  color: rgba(94, 79, 171, 1);
+}
+
+@media (max-width: 410px) {
+  form {
+    margin-bottom: 0;
+  }
+  .fast-contact {
+    grid-template-columns: repeat(1, auto 1fr);
+  }
+}

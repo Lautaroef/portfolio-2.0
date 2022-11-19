@@ -1,25 +1,11 @@
-"use client";
-import useStore from "components/state/zustand";
-import { motion } from "framer-motion";
-import Presentation from "components/home/Presentation";
-import Projects from "components/projects/Main";
+import { use } from "react";
+import getProjects from "utils/getProjects";
+import Main from "./Main";
 
-function Main() {
-  const { pageVariants, pageTransitions } = useStore();
-  return (
-    <>
-      <motion.div
-        exit="off"
-        animate="on"
-        initial="off"
-        variants={pageVariants}
-        transition={pageTransitions}
-      >
-        <Presentation />
-        <Projects />
-      </motion.div>
-    </>
-  );
+function Home() {
+  const projects = use(getProjects());
+
+  return <Main projects={projects} />;
 }
 
-export default Main;
+export default Home;

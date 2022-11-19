@@ -9,11 +9,7 @@ import Footer from "components/footer";
 // Animations
 import { AnimatePresence } from "framer-motion";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -27,7 +23,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider theme={theme}>
           <Header />
-          <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>
+          <AnimatePresence mode="wait">{children}</AnimatePresence>
           <Footer />
         </ThemeProvider>
       </body>

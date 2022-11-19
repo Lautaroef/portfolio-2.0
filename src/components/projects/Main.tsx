@@ -1,11 +1,12 @@
 "use client";
+import type { ProjectWithTechnologies } from "types";
 import { useEffect, useRef } from "react";
 import SingleProject from "./SingleProject";
 import scrollReveal from "../animations/ScrollReveal";
 import TiltAnimation from "../animations/TiltAnimation";
 import { StyledProjectsSection } from "./styled-components";
 
-function MyProjects() {
+function MyProjects({ projects }: { projects: ProjectWithTechnologies[] }) {
   const scrollProjects = useRef(null);
 
   useEffect(() => {
@@ -24,11 +25,7 @@ function MyProjects() {
 
   return (
     <div ref={scrollProjects}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 250"
-        style={{ width: "100%" }}
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250" style={{ width: "100%" }}>
         <path
           fill="#f8f8f8"
           fillOpacity="1"
@@ -39,7 +36,7 @@ function MyProjects() {
         <h2 id="my-projects">My recent Projects</h2>
         <span className="h2-border" />
         <div>
-          {projectsData.map((project) => {
+          {projects.map((project) => {
             return <SingleProject key={project.id} {...project} />;
           })}
         </div>

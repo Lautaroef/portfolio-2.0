@@ -9,7 +9,7 @@ import TypedAnimation from "../animations/TypedAnimation";
 import scrollDownImg from "../../images/scrollDown.svg";
 import Button from "@mui/material/Button";
 
-export default function FirstImpression() {
+function FirstImpression() {
   const scrollTitle = useRef(null); // For Scroll Anim
   const scrollTypedAnim = useRef(null);
   const scrollButton = useRef(null);
@@ -52,9 +52,7 @@ export default function FirstImpression() {
             <span>Interested in learning: </span>
             <h4 className="element"></h4>
           </div>
-          <h3>
-            Currently building: Software solution for the tourism industry.
-          </h3>
+          <h3>Currently building: Software solution for the tourism industry.</h3>
           <div className="my-buttons">
             <Button
               component={Link}
@@ -93,3 +91,5 @@ export default function FirstImpression() {
     </div>
   );
 }
+
+export default FirstImpression;

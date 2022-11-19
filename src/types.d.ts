@@ -1,24 +1,46 @@
+import type { project, technology } from "@prisma/client";
+
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  currently_building: string;
+  interested_in_learning: string[];
+};
+
 type Project = {
   id: number;
   title: string;
-  endDate: string | null;
+  endDate: Date;
   image: string;
   description: string[];
-  technologies: string[];
-  links: {
-    seeProject: string;
-    seeCode: string;
-    private?: boolean;
-  };
+  projectUrl: string;
+  codeUrl: string;
+  isPrivate: boolean;
+  type: ProjectType;
 };
 
 type Technology = {
-  title: string;
-  src: string;
-  imageWidth?: number;
+  id: number;
+  name: string;
+  image: string;
 };
+
+type ProjectWithTechnologies = project & {
+  technologies: technology[];
+};
+
+type ProjectType =
+  | "LANDING_PAGE"
+  | "FULL_STACK"
+  | "MOBILE_APP"
+  | "WEB_APP"
+  | "WIDGET"
+  | "BLOG"
+  | "PORTFOLIO"
+  | "OTHER";
 
 type NavBarItem = {
   title: string;
-  to: string;
+  href: string;
 };

@@ -1,3 +1,4 @@
+import type { NavBarItem } from "types";
 import Link from "next/link";
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -10,18 +11,15 @@ import Divider from "@mui/material/Divider";
 function HamburgerMenu() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const menuItems: NavBarItem[] = [
-    { title: "Home", to: "/" },
-    { title: "Projects", to: "/" },
-    { title: "About Me", to: "/about" },
-    { title: "Contact", to: "/contact" },
+    { title: "Home", href: "/" },
+    { title: "Projects", href: "/" },
+    { title: "About Me", href: "/about" },
+    { title: "Contact", href: "/contact" },
   ];
 
   return (
     <>
-      <i
-        className="fas fa-hamburger fa-2x"
-        onClick={() => setOpenMenu(true)}
-      ></i>
+      <i className="fas fa-hamburger fa-2x" onClick={() => setOpenMenu(true)}></i>
       {/* @ts-ignore */}
       <SwipeableDrawer
         anchor="right"
@@ -40,7 +38,7 @@ function HamburgerMenu() {
                 <ListItem
                   // @ts-ignore
                   as={Link}
-                  href={item.to}
+                  href={item.href}
                   key={item.title}
                   style={{ color: "rgba(0, 0, 0, 0.87)" }}
                   onClick={() => setOpenMenu(false)}

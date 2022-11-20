@@ -5,6 +5,8 @@ import SingleProject from "./SingleProject";
 import scrollReveal from "../animations/ScrollReveal";
 import TiltAnimation from "../animations/TiltAnimation";
 import { StyledProjectsSection } from "./styled-components";
+import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
+import GOTHAM_LS_LIGHT from "fonts/GOTHAM_LS_LIGHT";
 
 function MyProjects({ projects }: { projects: ProjectWithTechnologies[] }) {
   const scrollProjects = useRef(null);
@@ -25,7 +27,11 @@ function MyProjects({ projects }: { projects: ProjectWithTechnologies[] }) {
 
   return (
     <div ref={scrollProjects}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250" style={{ width: "100%" }}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 250"
+        style={{ width: "100%" }}
+      >
         <path
           fill="#f8f8f8"
           fillOpacity="1"
@@ -33,11 +39,20 @@ function MyProjects({ projects }: { projects: ProjectWithTechnologies[] }) {
         />
       </svg>
       <StyledProjectsSection>
-        <h2 id="my-projects">My recent Projects</h2>
+        <h2 id="my-projects" className={GOTHAM_MEDIUM.className}>
+          My Projects
+        </h2>
         <span className="h2-border" />
         <div>
           {projects.map((project) => {
-            return <SingleProject key={project.id} {...project} />;
+            return (
+              <SingleProject
+                key={project.id}
+                {...project}
+                gothamMedium={GOTHAM_MEDIUM.className}
+                gothamLsLight={GOTHAM_LS_LIGHT.className}
+              />
+            );
           })}
         </div>
       </StyledProjectsSection>

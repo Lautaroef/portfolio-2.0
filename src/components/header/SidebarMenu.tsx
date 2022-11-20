@@ -7,6 +7,10 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
+import { FaHamburger } from "react-icons/fa";
+// Fonts
+import ROBOTO from "fonts/ROBOTO";
+import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
 function HamburgerMenu() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -19,7 +23,7 @@ function HamburgerMenu() {
 
   return (
     <>
-      <i className="fas fa-hamburger fa-2x" onClick={() => setOpenMenu(true)}></i>
+      <FaHamburger className="hamburger" onClick={() => setOpenMenu(true)} />
       {/* @ts-ignore */}
       <SwipeableDrawer
         anchor="right"
@@ -28,7 +32,7 @@ function HamburgerMenu() {
         onClose={() => setOpenMenu(false)}
       >
         <div style={{ width: "200px" }}>
-          <Box textAlign={"center"} p={2}>
+          <Box textAlign={"center"} p={2} className={GOTHAM_MEDIUM.className}>
             Menu
           </Box>
           <Divider />
@@ -40,8 +44,9 @@ function HamburgerMenu() {
                   as={Link}
                   href={item.href}
                   key={item.title}
-                  style={{ color: "rgba(0, 0, 0, 0.87)" }}
                   onClick={() => setOpenMenu(false)}
+                  className={ROBOTO.className}
+                  style={{ color: "rgba(0, 0, 0, 0.87)" }}
                 >
                   <ListItemText>{item.title}</ListItemText>
                 </ListItem>

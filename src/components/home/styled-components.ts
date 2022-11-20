@@ -4,9 +4,9 @@ export const StyledPresentation = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 575px;
+  height: 595px;
   margin: auto;
-  max-width: calc(${({ theme }) => theme.maxWidth});
+  max-width: 1075px;
 
   .lottie-player {
     margin-top: 15rem;
@@ -41,7 +41,6 @@ export const TypedContainer = styled.div`
     margin-top: 2rem;
 
     a {
-      font-family: inherit;
       font-size: 0.95rem;
       padding: 0.525rem 2.15rem;
     }
@@ -61,7 +60,7 @@ export const TypedContainer = styled.div`
       letter-spacing: 0.1px;
     }
 
-    .element {
+    .typed-element {
       display: inline-block;
       font-size: 1.1rem;
       font-weight: 600;

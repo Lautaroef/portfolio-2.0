@@ -1,23 +1,39 @@
-// @ts-nocheck
 "use client";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { StyledPresentation, TypedContainer } from "./styled-components";
-import scrollReveal from "../animations/ScrollReveal";
-import TypedAnimation from "../animations/TypedAnimation";
-import scrollDownImg from "../../images/scrollDown.svg";
 import Button from "@mui/material/Button";
+import scrollDownImg from "../../images/scrollDown.svg";
+// Animations
+import Typed from "typed.js";
+import typedOptions from "../animations/typedOptions";
+import scrollReveal from "../animations/ScrollReveal";
+// Fonts
+import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
-function FirstImpression() {
-  const scrollTitle = useRef(null); // For Scroll Anim
-  const scrollTypedAnim = useRef(null);
-  const scrollButton = useRef(null);
-  const scrollGif = useRef(null);
+type Props = {
+  currentlyBuildingTitle: string;
+};
 
+function FirstImpression({ currentlyBuildingTitle }: Props) {
+  const typedAnimationEl = useRef(null);
+  const typed = useRef<Typed>();
+  const scrollTitle = useRef(null); // For scroll down animation
+  const scrollButton = useRef(null); // For scroll down animation
+
+  // Lottie animation
+  const lottieRef = useRef(null);
   useEffect(() => {
-    TypedAnimation();
-    // Scroll Animations
+    import("@lottiefiles/lottie-player");
+  });
+
+  // Other animations
+  useEffect(() => {
+    // Typed animation
+    typed.current = new Typed(typedAnimationEl.current!, typedOptions);
+
+    // Scroll reveal animation
     const config = {
       origin: "top", // "bottom"
       duration: 700,
@@ -25,34 +41,50 @@ function FirstImpression() {
     };
     if (
       scrollTitle.current &&
-      scrollTypedAnim.current &&
+      typedAnimationEl.current &&
       scrollButton.current &&
-      scrollGif.current
+      lottieRef.current
     ) {
       scrollReveal.reveal(".currently-dev", { ...config, delay: 100 });
       scrollReveal.reveal(scrollTitle.current, { ...config, delay: 200 });
-      scrollReveal.reveal(scrollTypedAnim.current, { ...config, delay: 300 });
+      scrollReveal.reveal(typedAnimationEl.current, { ...config, delay: 300 });
       scrollReveal.reveal(scrollButton.current, { ...config, delay: 400 });
-      scrollReveal.reveal(scrollGif.current, { ...config, delay: 500 });
+      scrollReveal.reveal(lottieRef.current, { ...config, delay: 500 });
     }
+
+    return () => {
+      scrollReveal.destroy();
+      typed.current && typed.current.destroy();
+    };
   }, []);
 
+  const parsedTitle =
+    currentlyBuildingTitle === "Booking Software for the Tourism Industry"
+      ? "Software solution for the tourism industry."
+      : currentlyBuildingTitle;
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <div className="first-impression">
       <StyledPresentation>
         <TypedContainer>
-          <h4 className="currently-dev">Currently developing: </h4>
-          <h1 ref={scrollTitle}>Full Stack Web Development skills</h1>
-          <div ref={scrollTypedAnim}>
-            <span>Interested in learning: </span>
-            <h4 className="element"></h4>
+          <h4 className={`currently-dev ${GOTHAM_MEDIUM.className}`}>
+            Currently developing:{" "}
+          </h4>
+          <h1 ref={scrollTitle} className={GOTHAM_MEDIUM.className}>
+            Full Stack Web Development skills
+          </h1>
+          <div>
+            <span className={GOTHAM_MEDIUM.className}>
+              Interested in learning:{" "}
+            </span>
+            <h4
+              className={`typed-element ${GOTHAM_MEDIUM.className}`}
+              ref={typedAnimationEl}
+            ></h4>
           </div>
-          <h3>Currently building: Software solution for the tourism industry.</h3>
+          <h3 className={GOTHAM_MEDIUM.className}>
+            Currently building: {parsedTitle}
+          </h3>
           <div className="my-buttons">
             <Button
               component={Link}
@@ -60,6 +92,7 @@ function FirstImpression() {
               disableElevation
               variant="contained"
               ref={scrollButton}
+              style={GOTHAM_MEDIUM.style}
             >
               About Me
             </Button>
@@ -69,8 +102,9 @@ function FirstImpression() {
               disableElevation
               variant="contained"
               ref={scrollButton}
+              style={GOTHAM_MEDIUM.style}
             >
-              Contact Me
+              Contact
             </Button>
           </div>
         </TypedContainer>
@@ -78,7 +112,7 @@ function FirstImpression() {
           speed="1"
           loop
           autoplay
-          ref={scrollGif}
+          ref={lottieRef}
           background="transparent"
           className="lottie-player"
           style={{ width: "75%" }}

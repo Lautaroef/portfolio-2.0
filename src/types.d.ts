@@ -20,12 +20,6 @@ type Project = {
   type: ProjectType;
 };
 
-type Technology = {
-  id: number;
-  name: string;
-  image: string;
-};
-
 type ProjectWithTechnologies = project & {
   technologies: technology[];
 };

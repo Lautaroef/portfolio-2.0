@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 import scrollReveal from "../animations/ScrollReveal";
 import pfp0 from "../../images/tono-blancon.jpeg";
 import SidebarMenu from "./SidebarMenu";
-import Button from "@mui/material/Button";
 import {
   StyledPicture,
   StyledMenu,
@@ -16,11 +15,16 @@ import {
   StyledContact,
   StyledBadge,
 } from "./styled-components";
+// Fonts
+import QUITE_MAGICAL from "fonts/QUITE_MAGICAL";
+import GOTHAM_LS_LIGHT from "fonts/GOTHAM_LS_LIGHT";
+import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
 function NavigationBar({ projects }: { projects: ProjectWithTechnologies[] }) {
   const pathname = usePathname();
+
   // Scroll Animation
-  const scrollNavbar = useRef<HTMLDivElement>();
+  const scrollNavbar = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (scrollNavbar.current) {
       scrollReveal.reveal(scrollNavbar.current, {
@@ -33,35 +37,50 @@ function NavigationBar({ projects }: { projects: ProjectWithTechnologies[] }) {
   }, []);
 
   return (
-    // @ts-ignore
     <StyledNavigation ref={scrollNavbar}>
-      {/* @ts-ignore */}
       <StyledPicture href="/about">
         <Image src={pfp0} alt="Lautaro Figueroa" />
-        <h3>Lautaro Figueroa</h3>
+        <h3 className={QUITE_MAGICAL.className}>Lautaro Figueroa</h3>
       </StyledPicture>
       <StyledMenu>
-        <Link href="/" className={pathname === "/" ? "activeLink" : ""}>
+        <Link
+          href="/"
+          className={`${pathname === "/" ? "activeLink" : ""} ${
+            GOTHAM_LS_LIGHT.className
+          }`}
+        >
           Home
         </Link>
-        <a href="/#my-projects" className={pathname === "/projects" ? "activeLink" : ""}>
-          <StyledBadge badgeContent={(projects && projects.length) || "..."} color="primary">
+        <a
+          href="/#my-projects"
+          className={`${pathname === "/projects" ? "activeLink" : ""} ${
+            GOTHAM_LS_LIGHT.className
+          }`}
+        >
+          <StyledBadge
+            badgeContent={(projects && projects.length) || "..."}
+            color="primary"
+          >
             Projects
           </StyledBadge>
         </a>
         <div>
           <button>
-            <Link href="/about" className={pathname === "/about" ? "activeLink" : ""}>
+            <Link
+              href="/about"
+              className={`${pathname === "/about" ? "activeLink" : ""} ${
+                GOTHAM_LS_LIGHT.className
+              }`}
+            >
               About Me
             </Link>
           </button>
         </div>
       </StyledMenu>
       <StyledContact>
-        {/* @ts-ignore */}
-        <Button component={Link} href="/contact">
+        <Link href="/contact" className={GOTHAM_MEDIUM.className}>
           Contact
-        </Button>
+        </Link>
       </StyledContact>
       {/* Hamburger Menu */}
       <SidebarMenu />

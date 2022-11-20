@@ -11,28 +11,30 @@ datasource db {
 }
 
 model user {
-  id                     Int       @id @default(autoincrement())
-  name                   String    @unique
-  email                  String    @unique
-  currently_building     String?
-  interested_in_learning String[]
-  projects               project[]
+  id                   Int          @id @default(autoincrement())
+  name                 String       @unique
+  email                String       @unique
+  livingIn             String       @default("")
+  interestedInLearning String[]
+  techStack            technology[]
+  projects             project[]
+  projectId            Int?
 }
 
 model project {
-  id          Int         @id @default(autoincrement())
-  title       String      @unique
-  endDate     DateTime
-  image       String
-  description String[]
-  projectUrl  String
-  codeUrl     String
-  isPrivate   Boolean
-  type        projectType
-
+  id           Int          @id @default(autoincrement())
+  title        String       @unique
+  endDate      DateTime
+  image        String
+  description  String[]
+  projectUrl   String
+  codeUrl      String
+  isPrivate    Boolean
+  type         projectType
   technologies technology[]
-  user         user         @relation(fields: [userId], references: [id])
-  userId       Int
+
+  userId Int?
+  user   user? @relation(fields: [userId], references: [id])
 }
 
 model technology {
@@ -40,6 +42,7 @@ model technology {
   name     String    @unique
   image    String
   projects project[]
+  users    user[]
 }
 
 enum projectType {

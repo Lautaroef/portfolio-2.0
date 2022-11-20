@@ -14,7 +14,9 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@lottiefiles/lottie-player": "^1.6.0",
     "@mui/material": "^5.10.14",
+    "@next/font": "^13.0.4",
     "@prisma/client": "^4.6.1",
     "framer-motion": "^7.6.7",
     "next": "13.0.4",

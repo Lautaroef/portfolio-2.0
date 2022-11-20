@@ -4,7 +4,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Gotham Medium";
+  box-sizing: border-box;
 }
 
 html {
@@ -18,30 +18,16 @@ body {
   line-height: 1.5;
 }
 
-/* Fonts */
-@font-face {
-  font-family: "Gotham Medium";
-  src: url(../fonts/Gotham\ Medium.otf);
+/* Presentation component */
+.first-impression {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -65px;
 }
-@font-face {
-  font-family: "Gotham LsLight";
-  src: url(../fonts/Gotham\ Book.otf);
-}
-@font-face {
-  font-family: "Gotham Light";
-  src: url(../fonts/Gotham\ Light.otf);
-}
-
-@font-face {
-  font-family: "Quite Magical";
-  src: url(../fonts/QuiteMagicalRegular-8VA2.ttf);
-  font-style: normal;
-  font-size: 26px;
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@media (max-width: 780px) {
+  .first-impression {
+    margin-bottom: 125px; /* This is to prevent the svg wave to overlap the lottie working animation */
+  }
 }
 
 /* Hamburger menu */
@@ -55,6 +41,7 @@ span.MuiTypography-root {
 }
 .center-image img {
   width: 37.5px;
+  margin-top: -15px;
 }
 
 /* Scroll bar customization */

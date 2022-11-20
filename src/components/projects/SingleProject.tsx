@@ -1,7 +1,13 @@
+import type { ProjectWithTechnologies } from "types";
+import { StyledSingleProject } from "./styled-components";
 import Image from "next/image";
 import { FaLock } from "react-icons/fa";
+import Link from "next/link";
 
-import { StyledSingleProject } from "./styled-components";
+type Props = ProjectWithTechnologies & {
+  gothamMedium: string;
+  gothamLsLight: string;
+};
 
 function SingleProject({
   title,
@@ -9,31 +15,51 @@ function SingleProject({
   image,
   description,
   technologies,
-  links,
-}: Project) {
+  projectUrl,
+  codeUrl,
+  isPrivate,
+  gothamMedium,
+  gothamLsLight,
+}: Props) {
+  // Display the endDate as, example: "March 2022"
+  const date = new Date(endDate).toLocaleString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <>
       {title ? (
-        // @ts-ignore
-        <StyledSingleProject data-tilt imageSrc={image}>
+        <StyledSingleProject data-tilt /* imageSrc={image}*/>
           <div className="box">
             <div>
-              <h3>{title}</h3>
-              {endDate && <span className="end-date">End date {endDate}</span>}
+              <h3 className={gothamMedium}>{title}</h3>
+              {endDate && (
+                <span className={`end-date ${gothamMedium}`}>
+                  End date {date}
+                </span>
+              )}
             </div>
-            <a href={links.seeProject} target="_blank" rel="noreferrer">
-              <Image src={image} alt={title} />
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={projectUrl}
+              className="image-container"
+            >
+              <Image width={469} height={350} src={image} alt={title} />
             </a>
             <div>
               {description.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
+                <p key={i} className={gothamLsLight}>
+                  {paragraph}
+                </p>
               ))}
             </div>
 
             <div className="technologies">
               {technologies.map((tech, index) => (
-                <span key={index} className="spans">
-                  {tech}
+                <span key={index} className={`spans ${gothamLsLight}`}>
+                  {tech.name}
                 </span>
               ))}
             </div>
@@ -42,17 +68,26 @@ function SingleProject({
             <a
               rel="noreferrer"
               target="_blank"
-              href={links.seeProject}
-              style={
-                links.seeProject === "#" ? { cursor: "not-allowed" } : undefined
-              }
+              href={projectUrl}
+              className={gothamLsLight}
+              style={projectUrl === "" ? { cursor: "not-allowed" } : undefined}
             >
               Live
             </a>
-
-            <a href={links.seeCode} target="_blank" rel="noreferrer">
-              Github {links.private ? <FaLock /> : null}
-            </a>
+            {isPrivate ? (
+              <button className={gothamLsLight}>
+                Github <FaLock />
+              </button>
+            ) : (
+              <a
+                href={codeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={gothamLsLight}
+              >
+                Github
+              </a>
+            )}
           </div>
         </StyledSingleProject>
       ) : null}

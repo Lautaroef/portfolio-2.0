@@ -2,22 +2,6 @@ import Link from "next/link";
 import styled from "styled-components";
 import Badge from "@mui/material/Badge";
 
-export const theme = {
-  maxWidth: "1200px",
-  maxNavbarHeight: "46px",
-  contactBg: `linear-gradient(
-    90deg,
-    rgba(94, 79, 171, 1) 0%,
-    rgba(106, 81, 164, 1) 70%,
-    rgba(114, 82, 157, 1) 100%
-  )`,
-  white: "#fff",
-  black: "#000",
-  grayLight: "#eee",
-  grayStrong: "#808080",
-  textColor: "rgba(0,0,0,0.9)",
-};
-
 const ExtendFlexAttrs = styled.div`
   display: flex;
   justify-content: center;
@@ -27,24 +11,29 @@ const ExtendFlexAttrs = styled.div`
 export const StyledNavigation = styled(ExtendFlexAttrs).attrs({
   as: "nav",
 })`
-  max-width: ${(props) => props.theme.maxWidth};
+  max-width: 1200px;
   max-height: 46px;
   margin: 0 auto 3rem auto;
   z-index: 999;
 
-  .fa-hamburger {
+  .hamburger {
     display: none;
     @media (max-width: 780px) {
       display: inherit;
+      width: 32px;
+      height: 32px;
       margin: 0.4rem 1rem;
+      cursor: pointer;
     }
   }
 `;
 
-export const StyledPicture = styled(ExtendFlexAttrs).attrs(() => ({
-  as: Link,
-}))`
-  margin: 0.1rem 4.5vw 0 0;
+export const StyledPicture = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0.15rem 4.5vw 0 0;
   padding-left: 1rem;
   text-decoration: none;
   color: initial;
@@ -67,7 +56,6 @@ export const StyledPicture = styled(ExtendFlexAttrs).attrs(() => ({
   }
 
   h3 {
-    font-family: "Quite Magical";
     font-size: 1.95rem;
     margin-top: 0.125rem;
     margin-left: 0.625rem;
@@ -86,16 +74,15 @@ export const StyledMenu = styled(ExtendFlexAttrs).attrs({
     flex: 0.5;
   }
   a {
-    font-family: "Gotham LsLight";
     position: relative;
     padding: 0.6rem 2rem 0.6rem 2rem;
-    background: ${(props) => props.theme.white};
-    color: ${(props) => props.theme.grayStrong};
+    background: #fff;
+    color: #808080;
     font-size: 14.5px;
     text-decoration: none;
 
     &:hover {
-      color: ${(props) => props.theme.black};
+      color: #000;
     }
 
     &::after {
@@ -105,7 +92,12 @@ export const StyledMenu = styled(ExtendFlexAttrs).attrs({
       position: absolute;
       bottom: 0;
       left: 0;
-      background: ${(props) => props.theme.contactBg};
+      background: linear-gradient(
+        90deg,
+        rgba(94, 79, 171, 1) 0%,
+        rgba(106, 81, 164, 1) 70%,
+        rgba(114, 82, 157, 1) 100%
+      );
       z-index: 5;
       transform: scale(0, 1);
       transition: transform 0.33s ease-out;
@@ -119,13 +111,13 @@ export const StyledMenu = styled(ExtendFlexAttrs).attrs({
   div {
     margin: 2px -20px 0 0;
     padding: 1rem 0;
-    background-color: ${(props) => props.theme.white};
+    background-color: #fff;
     z-index: 2;
     transform: skew(-40deg);
 
     button {
       margin-right: 1.11rem;
-      background-color: ${(props) => props.theme.white};
+      background-color: #fff;
       border: none;
       transform: skew(40deg);
     }
@@ -136,7 +128,7 @@ export const StyledMenu = styled(ExtendFlexAttrs).attrs({
   }
 
   .activeLink {
-    color: ${(props) => props.theme.black};
+    color: #000;
     font-weight: 600;
   }
 
@@ -150,7 +142,12 @@ export const StyledContact = styled(ExtendFlexAttrs)`
   justify-content: flex-end;
   flex: 1;
   padding: 0.5rem 0;
-  background: ${(props) => props.theme.contactBg};
+  background: linear-gradient(
+    90deg,
+    rgba(94, 79, 171, 1) 0%,
+    rgba(106, 81, 164, 1) 70%,
+    rgba(114, 82, 157, 1) 100%
+  );
 
   @media (min-width: 980px) {
     flex: 0.5;
@@ -160,20 +157,16 @@ export const StyledContact = styled(ExtendFlexAttrs)`
   a {
     margin-right: 1rem;
     padding: 0.3rem 1rem;
-    background-color: ${(props) => props.theme.white};
+    background-color: #fff;
     color: #252525; // #2e2e2e
     font-size: 15px;
     font-weight: 500;
-    font-family: "Gotham Medium";
     border-radius: 25px;
-    // Change MUI values
-    font-family: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
     text-transform: unset;
+    text-decoration: none;
 
     &:hover {
-      background-color: ${(props) => props.theme.white};
+      background-color: #fff;
     }
   }
   @media (max-width: 780px) {
@@ -184,9 +177,9 @@ export const StyledContact = styled(ExtendFlexAttrs)`
 export const StyledBadge = styled(Badge)(() => ({
   "& .MuiBadge-badge": {
     right: -5,
-    padding: "1px 0px 0 0px",
+    padding: "4px", // 1px 0px 0 0px
     fontSize: "0.715rem",
-    height: 17.5,
+    height: 18,
     minWidth: 18,
     borderRadius: "50%",
   },

@@ -1,15 +1,18 @@
-"use client";
+import { use } from "react";
+import getProjects from "utils/getProjects";
 // Styling
 import "../styles/globals.css";
-import { ThemeProvider } from "styled-components";
-import { theme } from "components/header/styled-components";
 // Components
 import Header from "components/header";
 import Footer from "components/footer";
-// Animations
-import { AnimatePresence } from "framer-motion";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const projects = use(getProjects());
+
   return (
     <html lang="en">
       <head>
@@ -21,11 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="../public/favicon.ico" />
       </head>
       <body>
-        <ThemeProvider theme={theme}>
-          <Header />
-          <AnimatePresence mode="wait">{children}</AnimatePresence>
-          <Footer />
-        </ThemeProvider>
+        <Header projects={projects} />
+        {children}
+        <Footer />
       </body>
     </html>
   );

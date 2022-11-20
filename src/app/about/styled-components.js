@@ -1,6 +1,6 @@
-import Tooltip from "@mui/material/Tooltip";
 import { styled as styledMUI } from "@mui/material/styles";
 import styled from "styled-components";
+import Tooltip from "@mui/material/Tooltip";
 
 export const StyledSectionTitle = styled.div`
   width: 100%;
@@ -25,16 +25,20 @@ export const StyledAboutMe = styled.div`
   display: flex;
   justify-content: center;
   column-gap: 1rem;
-  max-width: 850px;
+  max-width: 916px;
   margin: 6rem auto 3rem auto;
-  padding: 1.5rem 1.85rem 0.5rem 2.25rem;
+  padding: 1.5rem 1.75rem 0.5rem 2.25rem;
   border: 1px solid rgba(0, 0, 0, 0.06); //0.06
   border-radius: 0.85rem;
 
   p {
-    font-family: "Gotham LsLight";
     font-size: 0.995rem;
     line-height: 1.8;
+    font-family: "__GOTHAM_LS_LIGHT_cef799", "__GOTHAM_LS_LIGHT_Fallback_cef799";
+
+    b {
+      font-family: "__GOTHAM_MEDIUM_68e348", "__GOTHAM_MEDIUM_Fallback_68e348";
+    }
 
     &:not(:first-child) {
       margin-top: 1rem; // 1.15rem
@@ -51,7 +55,6 @@ export const StyledAboutMe = styled.div`
     flex-direction: column;
 
     img {
-      width: 280px;
       border-radius: 50%;
     }
   }
@@ -70,7 +73,7 @@ export const StyledTechs = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 5px;
-  max-width: 80%;
+  max-width: 90%;
 
   span {
     margin: 0.35rem 0.5rem 0.225rem 0;
@@ -78,6 +81,7 @@ export const StyledTechs = styled.div`
     border-radius: 2.5px;
     background-color: rgba(0, 0, 0, 0.08);
     font-size: 14.5px;
+    font-family: "__GOTHAM_MEDIUM_68e348", "__GOTHAM_MEDIUM_Fallback_68e348";
   }
 `;
 
@@ -103,12 +107,13 @@ export const StyledEducation = styled.div`
   justify-content: space-between;
   margin: 4rem auto;
   padding: 0 0 0.65rem 3.25rem;
-  max-width: calc(${({ theme }) => theme.maxWidth} - 180px);
+  max-width: calc(1200px - 120px);
 
   ul {
     display: flex;
     flex-direction: column;
     row-gap: 0.35rem;
+    margin-right: 1.75rem;
 
     h2 {
       margin-bottom: 0.75rem;
@@ -118,7 +123,6 @@ export const StyledEducation = styled.div`
       margin-left: 1rem;
     }
   }
-
   img {
     width: 50%;
   }
@@ -139,6 +143,4 @@ export const StyledEducation = styled.div`
 
 export const CustomizedToolTip = styledMUI(({ className, ...props }) => (
   <Tooltip {...props} componentsProps={{ tooltip: { className: className } }} />
-))(` 
-  font-size: 0.75rem; 
-`);
+))(`font-size: 0.75rem;`);

@@ -21,7 +21,7 @@ type Props = {
 
 function FirstImpression({ currentProject }: Props) {
   // TODO: Convert the gif to a lottie animation
-  // Couln't find a way to do it because on production the animation is not working
+  // Couldn't find a way to do it because on production the animation is not working
   const typedAnimationEl = useRef(null);
   const typed = useRef<Typed>();
   const scrollTitle = useRef(null); // For scroll down animation
@@ -116,7 +116,12 @@ function FirstImpression({ currentProject }: Props) {
           </div>
         </TypedContainer>
         {/* Lottie player */}
-        <Image src={gifAnimation} alt="Lottie animation" width={446} />
+        <Image
+          width={440}
+          height={430}
+          src={gifAnimation}
+          alt="Lottie animation"
+        />
         {/* <Lottie
           loop
           autoplay
@@ -129,7 +134,7 @@ function FirstImpression({ currentProject }: Props) {
         ></Lottie> */}
       </StyledPresentation>
       <a href="/#my-projects" className="center-image">
-        <Image src={scrollDownImg} alt="Scroll Down" />
+        <Image src={scrollDownImg} alt="Scroll Down" width={37.5} />
       </a>
     </div>
   );

@@ -134,7 +134,7 @@ function FirstImpression({ currentProject }: Props) {
         ></Lottie> */}
       </StyledPresentation>
       <a href="/#my-projects" className="center-image">
-        <Image src={scrollDownImg} alt="Scroll Down" width={37.5} />
+        <Image src={scrollDownImg} alt="Scroll Down" width={37.5} height={70} />
       </a>
     </div>
   );

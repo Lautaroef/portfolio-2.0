@@ -5,20 +5,22 @@ import type { projectType } from "@prisma/client";
 // Fonts
 import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 import GOTHAM_LS_LIGHT from "fonts/GOTHAM_LS_LIGHT";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type CustomProjectsTypes = projectType | "ALL";
 
 type Props = {
   projects: ProjectWithTechnologies[];
-  filteredProjects: ProjectWithTechnologies[];
-  setFilteredProjects: React.Dispatch<
-    React.SetStateAction<ProjectWithTechnologies[]>
-  >;
+  setFilteredProjects: React.Dispatch<React.SetStateAction<ProjectWithTechnologies[]>>;
 };
 
-function Filter({ projects, filteredProjects, setFilteredProjects }: Props) {
+function Filter({ projects, setFilteredProjects }: Props) {
   const [value, setValue] = useState<CustomProjectsTypes>("FULL_STACK");
+
+  // make the initial projects be filtered by "FULL_STACK"
+  useEffect(() => {
+    setFilteredProjects(projects.filter((project) => project.type === "FULL_STACK"));
+  }, []);
 
   const handleSelectedFilter = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLButtonElement;

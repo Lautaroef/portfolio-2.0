@@ -24,11 +24,7 @@ function Projects({ projects }: { projects: ProjectWithTechnologies[] }) {
         My Projects
       </h2>
       <span className="h2-border" />
-      <Filter
-        projects={projects}
-        filteredProjects={filteredProjects}
-        setFilteredProjects={setFilteredProjects}
-      />
+      <Filter projects={projects} setFilteredProjects={setFilteredProjects} />
       <div className="projects-container">
         {filteredProjects.map((project) => (
           <SingleProject

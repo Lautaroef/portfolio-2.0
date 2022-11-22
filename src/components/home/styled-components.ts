@@ -8,6 +8,11 @@ export const StyledPresentation = styled.div`
   margin: auto;
   max-width: 1075px;
 
+  img {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .lottie-player {
     height: 595px;
   }

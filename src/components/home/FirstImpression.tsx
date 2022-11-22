@@ -117,6 +117,7 @@ function FirstImpression({ currentProject }: Props) {
         </TypedContainer>
         {/* Lottie player */}
         <Image
+          priority
           width={440}
           height={430}
           src={gifAnimation}

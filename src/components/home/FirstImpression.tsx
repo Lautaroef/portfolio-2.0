@@ -1,4 +1,5 @@
 "use client";
+import type { ProjectWithTechnologies } from "types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -13,22 +14,21 @@ import typedOptions from "../animations/typedOptions";
 import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
 type Props = {
-  currentlyBuildingTitle: string;
+  currentProject: ProjectWithTechnologies;
 };
 
-function FirstImpression({ currentlyBuildingTitle }: Props) {
+function FirstImpression({ currentProject }: Props) {
   const typedAnimationEl = useRef(null);
   const typed = useRef<Typed>();
   const scrollTitle = useRef(null); // For scroll down animation
   const myButtons = useRef(null); // For scroll down animation
+  const lottieRef = useRef(null);
 
   // Lottie animation
-  const lottieRef = useRef(null);
   useEffect(() => {
     import("@lottiefiles/lottie-player");
-  });
+  }, []);
 
-  // Other animations
   useEffect(() => {
     // Typed animation
     typed.current = new Typed(typedAnimationEl.current!, typedOptions);
@@ -65,10 +65,11 @@ function FirstImpression({ currentlyBuildingTitle }: Props) {
     };
   }, []);
 
+  const title = currentProject.title;
   const parsedTitle =
-    currentlyBuildingTitle === "Booking Software for the Tourism Industry"
+    title === "Booking Software for the Tourism Industry"
       ? "Software solution for the tourism industry."
-      : currentlyBuildingTitle;
+      : title;
 
   return (
     <div className="first-impression">
@@ -115,6 +116,7 @@ function FirstImpression({ currentlyBuildingTitle }: Props) {
             </Button>
           </div>
         </TypedContainer>
+        {/* Lottie player */}
         <lottie-player
           speed="1"
           loop
@@ -123,7 +125,8 @@ function FirstImpression({ currentlyBuildingTitle }: Props) {
           background="transparent"
           className="lottie-player"
           style={{ width: "75%" }}
-          src="https://assets10.lottiefiles.com/packages/lf20_psdcolux.json"
+          // src="https://assets10.lottiefiles.com/packages/lf20_psdcolux.json"
+          src="/images/static/lottie-working.json"
         ></lottie-player>
       </StyledPresentation>
       <a href="/#my-projects" className="center-image">

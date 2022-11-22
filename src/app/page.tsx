@@ -2,18 +2,12 @@ import { use } from "react";
 import getProjects from "utils/getProjects";
 import Main from "../components/home";
 
+export const revalidate = 3600; // revalidate every hour
+
 function Home() {
   const projects = use(getProjects());
-  const currentlyBuildingTitle = projects.find(
-    (project) => project.title === "Booking Software for the Tourism Industry"
-  )?.title;
 
-  return (
-    <Main
-      projects={projects}
-      currentlyBuildingTitle={currentlyBuildingTitle as string}
-    />
-  );
+  return <Main projects={projects} />;
 }
 
 export default Home;

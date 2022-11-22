@@ -14,11 +14,11 @@ import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
 type Props = {
   projects: ProjectWithTechnologies[];
-  currentlyBuildingTitle: string;
 };
 
-function Main({ projects, currentlyBuildingTitle }: Props) {
+function Main({ projects }: Props) {
   const { pageVariants, pageTransitions } = useStore();
+  const lastProject = projects[projects.length - 1];
 
   return (
     <AnimatePresence mode="wait">
@@ -29,7 +29,7 @@ function Main({ projects, currentlyBuildingTitle }: Props) {
         variants={pageVariants}
         transition={pageTransitions}
       >
-        <FirstImpression currentlyBuildingTitle={currentlyBuildingTitle} />
+        <FirstImpression currentProject={lastProject} />
         <WaveSvg />
         <Projects projects={projects} />
         <div

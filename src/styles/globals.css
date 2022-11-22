@@ -38,10 +38,12 @@ span.MuiTypography-root {
 /* Scroll down image */
 .center-image {
   margin: auto;
+  z-index: 2;
 }
 .center-image img {
   width: 37.5px;
   margin-top: -15px;
+  cursor: pointer;
 }
 
 /* Scroll bar customization */

@@ -2,11 +2,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  const generateDate = await prisma.me.create({
-    data: {
-      currently_building: "Software solu",
-    },
-  });
+  const generateData = async () => {};
 }
 main()
   .then(async () => {

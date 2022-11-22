@@ -2,16 +2,21 @@ import type { technology } from "@prisma/client";
 import { prisma } from "server/db/client";
 
 const getTechStack = async () => {
-  const techStack = await prisma.user.findUnique({
+  // get the tech stack from user 1 and order them asc by id
+  const techStack = await prisma.technology.findMany({
     where: {
-      id: 1,
+      users: {
+        some: {
+          id: 1,
+        },
+      },
     },
-    select: {
-      techStack: true,
+    orderBy: {
+      id: "asc",
     },
   });
 
-  return techStack?.techStack as technology[];
+  return techStack;
 };
 
 export default getTechStack;

@@ -1,13 +1,14 @@
 "use client";
 import type { ProjectWithTechnologies } from "types";
+import Link from "next/link";
 import useStore from "state/zustand";
 import { motion } from "framer-motion";
 import FirstImpression from "components/home/FirstImpression";
-import Projects from "components/projects/Main";
+import Projects from "components/projects";
+import WaveSvg from "components/home/WaveSvg";
+import Button from "@mui/material/Button";
 // Animation
 import { AnimatePresence } from "framer-motion";
-import { Button } from "@mui/material";
-import Link from "next/link";
 // Fonts
 import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
@@ -29,6 +30,7 @@ function Main({ projects, currentlyBuildingTitle }: Props) {
         transition={pageTransitions}
       >
         <FirstImpression currentlyBuildingTitle={currentlyBuildingTitle} />
+        <WaveSvg />
         <Projects projects={projects} />
         <div
           style={{

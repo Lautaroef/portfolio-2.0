@@ -8,7 +8,7 @@ import scrollDownImg from "../../images/scrollDown.svg";
 // Animations
 import Typed from "typed.js";
 import typedOptions from "../animations/typedOptions";
-import scrollReveal from "../animations/ScrollReveal";
+// import scrollReveal from "../animations/ScrollReveal";
 // Fonts
 import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
@@ -20,7 +20,7 @@ function FirstImpression({ currentlyBuildingTitle }: Props) {
   const typedAnimationEl = useRef(null);
   const typed = useRef<Typed>();
   const scrollTitle = useRef(null); // For scroll down animation
-  const scrollButton = useRef(null); // For scroll down animation
+  const myButtons = useRef(null); // For scroll down animation
 
   // Lottie animation
   const lottieRef = useRef(null);
@@ -39,21 +39,28 @@ function FirstImpression({ currentlyBuildingTitle }: Props) {
       duration: 700,
       distance: "20px",
     };
-    if (
-      scrollTitle.current &&
-      typedAnimationEl.current &&
-      scrollButton.current &&
-      lottieRef.current
-    ) {
-      scrollReveal.reveal(".currently-dev", { ...config, delay: 100 });
-      scrollReveal.reveal(scrollTitle.current, { ...config, delay: 200 });
-      scrollReveal.reveal(typedAnimationEl.current, { ...config, delay: 300 });
-      scrollReveal.reveal(scrollButton.current, { ...config, delay: 400 });
-      scrollReveal.reveal(lottieRef.current, { ...config, delay: 500 });
+    async function animate() {
+      if (
+        scrollTitle.current &&
+        typedAnimationEl.current &&
+        myButtons.current &&
+        lottieRef.current
+      ) {
+        const scrollReveal = (await import("../animations/ScrollReveal"))
+          .default;
+        scrollReveal.reveal(".currently-dev", { ...config, delay: 100 });
+        scrollReveal.reveal(scrollTitle.current, { ...config, delay: 200 });
+        scrollReveal.reveal(typedAnimationEl.current, {
+          ...config,
+          delay: 300,
+        });
+        scrollReveal.reveal(myButtons.current, { ...config, delay: 400 });
+        scrollReveal.reveal(lottieRef.current, { ...config, delay: 500 });
+      }
     }
-
+    animate();
     return () => {
-      scrollReveal.destroy();
+      // scrollReveal.destroy();
       typed.current && typed.current.destroy();
     };
   }, []);
@@ -91,7 +98,7 @@ function FirstImpression({ currentlyBuildingTitle }: Props) {
               href="/about"
               disableElevation
               variant="contained"
-              ref={scrollButton}
+              ref={myButtons}
               style={GOTHAM_MEDIUM.style}
             >
               About Me
@@ -101,7 +108,7 @@ function FirstImpression({ currentlyBuildingTitle }: Props) {
               href="/contact"
               disableElevation
               variant="contained"
-              ref={scrollButton}
+              ref={myButtons}
               style={GOTHAM_MEDIUM.style}
             >
               Contact

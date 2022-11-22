@@ -28,6 +28,49 @@ export const StyledProjectsSection = styled.section`
     border-radius: 5px;
     background-color: #3e4b9f;
   }
+
+  .filter-container {
+    margin-bottom: 2rem;
+    .filter-options {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2; // because sometimes the project card is on top of the filter options
+
+      .filter-option {
+        margin: 0 0.25rem;
+        padding: 0.25rem 0.75rem;
+        background-color: #fff;
+        font-size: 0.9rem;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f8f8f8;
+        }
+        &.selected-value {
+          color: #fff;
+          background-color: #3e4b9f;
+        }
+      }
+    }
+  }
+
+  /* Autocomplete search */
+  /* .search-projects-input {
+    width: 300px;
+    margin: 0 auto;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .MuiInputBase-root {
+    padding: 0rem 0 0rem 0 !important;
+  }
+
+  .MuiInputBase-input {
+    height: 38px;
+  } */
 `;
 
 export const StyledSingleProject = styled.div.attrs(() => ({

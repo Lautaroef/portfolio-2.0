@@ -20,7 +20,8 @@ type Project = {
   type: ProjectType;
 };
 
-type ProjectWithTechnologies = project & {
+type ProjectWithTechnologies = Omit<project, "endDate"> & {
+  endDate: string;
   technologies: technology[];
 };
 

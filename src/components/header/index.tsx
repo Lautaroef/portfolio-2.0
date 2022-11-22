@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import scrollReveal from "../animations/ScrollReveal";
 import pfp0 from "../../images/tono-blancon.jpeg";
 import SidebarMenu from "./SidebarMenu";
 import {
@@ -20,20 +19,25 @@ import QUITE_MAGICAL from "fonts/QUITE_MAGICAL";
 import GOTHAM_LS_LIGHT from "fonts/GOTHAM_LS_LIGHT";
 import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
-function NavigationBar({ projects }: { projects: ProjectWithTechnologies[] }) {
+function Header({ projects }: { projects: ProjectWithTechnologies[] }) {
   const pathname = usePathname();
-
   // Scroll Animation
   const scrollNavbar = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    if (scrollNavbar.current) {
-      scrollReveal.reveal(scrollNavbar.current, {
-        origin: "top",
-        duration: 700,
-        distance: "20px",
-        delay: 100,
-      });
+    async function animate() {
+      if (scrollNavbar.current) {
+        const scrollReveal = (await import("../animations/ScrollReveal"))
+          .default;
+        scrollReveal.reveal(scrollNavbar.current, {
+          origin: "top",
+          duration: 700,
+          distance: "20px",
+          delay: 100,
+        });
+      }
     }
+    animate();
   }, []);
 
   return (
@@ -88,4 +92,4 @@ function NavigationBar({ projects }: { projects: ProjectWithTechnologies[] }) {
   );
 }
 
-export default NavigationBar;
+export default Header;

@@ -21,7 +21,6 @@ export default function RootLayout({
           name="description"
           content="Lautaro Figueroa's portfolio. Full Stack Web Developer with React.js, Next.js, TypeScript, Node.js, MongoDB, MySQL and PostgreSQL."
         />
-        <link rel="icon" href="../public/favicon.ico" />
       </head>
       <body>
         <Header projects={projects} />

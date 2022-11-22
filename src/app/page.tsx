@@ -1,6 +1,6 @@
 import { use } from "react";
 import getProjects from "utils/getProjects";
-import Main from "./Main";
+import Main from "../components/home";
 
 function Home() {
   const projects = use(getProjects());

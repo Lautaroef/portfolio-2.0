@@ -34,26 +34,27 @@ function Main({ techStack }: { techStack: technology[] }) {
         <StyledAboutMe>
           <div>
             <p>
-              I'm Lautaro Figueroa, {age} years old, from Argentina and I'm most
-              excited about <b>Full-Stack Web Development</b>, using mainly
+              I&apos;m Lautaro Figueroa, {age} years old, from Argentina and
+              I&apos;m most excited about <b>Full-Stack Web Development</b>,
+              using mainly
               <b> Next.js with Typescript</b>, <b> Redux or Zustand </b>as state
               management, and
-              <b> MongoDB or MySQL</b> as database depending on the needs of the
-              project.
+              <b> MongoDB or PostgreSQL</b> as database depending on the needs
+              of the project.
             </p>
             <p style={{ marginTop: "0.5rem" }}>
               My goal is to become a proficient <b>Full-Stack web developer </b>
               as I want to be able to create any type of web application, from a
               simple landing page to a complex software business.
-              {/* However, I'm currently diving into Python by creating some basic
+              {/* However, I&apos;m currently diving into Python by creating some basic
           programs / games as I intend to be part of the <b>cybersecurity </b>
           field in the mid term. */}
             </p>
             <p>
-              For any project I'm part of, my main goal is to try to deliver the
-              best possible <b>user-experience</b>, with a clean and easy to use
-              UI, and a well-structured code that can be easily understood by
-              anyone.
+              For any project I&apos;m part of, my main goal is to try to
+              deliver the best possible <b>user-experience</b>, with a clean and
+              easy to use UI, and a well-structured code that can be easily
+              understood by anyone.
               {/* Whenever I start a new project, my main goal is to try to deliver
           the best possible <b>user-experience</b>, with a clean and easy to
           use UI, and a well-structured code that can be easily understood by
@@ -63,7 +64,7 @@ function Main({ techStack }: { techStack: technology[] }) {
           the user can have the best possible experience on my site. */}
             </p>
             <p>
-              Some of the <span>technologies</span> I've been working with
+              Some of the <span>technologies</span> I&apos;ve been working with
               lately are:
               {/* Some of the <span>technologies/languages</span> I use: */}
             </p>
@@ -87,7 +88,7 @@ function Main({ techStack }: { techStack: technology[] }) {
             </StyledTechs>
             <p>
               <span>
-                {/* I'm looking for new and strong challenges so i can improve as a
+                {/* I&apos;m looking for new and strong challenges so i can improve as a
             developer and help a business at the same time. */}
               </span>
             </p>

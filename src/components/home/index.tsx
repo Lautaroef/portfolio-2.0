@@ -18,7 +18,7 @@ type Props = {
 
 function Main({ projects }: Props) {
   const { pageVariants, pageTransitions } = useStore();
-  const lastProject = projects[projects.length - 1];
+  const lastProject = projects[0]; // 0 because the projects are returned from the server by date
 
   return (
     <AnimatePresence mode="wait">

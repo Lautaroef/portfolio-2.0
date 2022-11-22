@@ -116,8 +116,8 @@ function FirstImpression({ currentProject }: Props) {
           </div>
         </TypedContainer>
         {/* Lottie player */}
-        {/* <Image src={gifAnimation} alt="Lottie animation" width={446} /> */}
-        <Lottie
+        <Image src={gifAnimation} alt="Lottie animation" width={446} />
+        {/* <Lottie
           loop
           autoplay
           ref={lottieRef}
@@ -126,7 +126,7 @@ function FirstImpression({ currentProject }: Props) {
           animationData={jsonAnimation}
           // src="https://assets10.lottiefiles.com/packages/lf20_psdcolux.json"
           // src="/images/static/lottie-working.json"
-        ></Lottie>
+        ></Lottie> */}
       </StyledPresentation>
       <a href="/#my-projects" className="center-image">
         <Image src={scrollDownImg} alt="Scroll Down" />

@@ -6,10 +6,11 @@ import { useEffect, useRef } from "react";
 import { StyledPresentation, TypedContainer } from "./styled-components";
 import Button from "@mui/material/Button";
 import scrollDownImg from "../../images/scrollDown.svg";
+import jsonAnimation from "../../../public/images/static/lottie-working.json";
 // Animations
 import Typed from "typed.js";
+import Lottie from "lottie-react";
 import typedOptions from "../animations/typedOptions";
-// import scrollReveal from "../animations/ScrollReveal";
 // Fonts
 import GOTHAM_MEDIUM from "fonts/GOTHAM_MEDIUM";
 
@@ -24,10 +25,10 @@ function FirstImpression({ currentProject }: Props) {
   const myButtons = useRef(null); // For scroll down animation
   const lottieRef = useRef(null);
 
-  // Lottie animation
-  useEffect(() => {
-    import("@lottiefiles/lottie-player");
-  }, []);
+  // // Lottie animation
+  // useEffect(() => {
+  //   import("@lottiefiles/lottie-player");
+  // }, []);
 
   useEffect(() => {
     // Typed animation
@@ -117,17 +118,16 @@ function FirstImpression({ currentProject }: Props) {
           </div>
         </TypedContainer>
         {/* Lottie player */}
-        <lottie-player
-          speed="1"
+        <Lottie
           loop
           autoplay
           ref={lottieRef}
-          background="transparent"
           className="lottie-player"
           style={{ width: "75%" }}
+          animationData={jsonAnimation}
           // src="https://assets10.lottiefiles.com/packages/lf20_psdcolux.json"
-          src="/images/static/lottie-working.json"
-        ></lottie-player>
+          // src="/images/static/lottie-working.json"
+        ></Lottie>
       </StyledPresentation>
       <a href="/#my-projects" className="center-image">
         <Image src={scrollDownImg} alt="Scroll Down" />

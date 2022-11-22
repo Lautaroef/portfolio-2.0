@@ -43,8 +43,6 @@ export const StyledPicture = styled(Link)`
     justify-content: flex-start;
   }
   img {
-    width: 40px;
-    height: 40px;
     border-radius: 100%;
     transition: transform 0.2s ease-out;
     &:hover {

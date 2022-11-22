@@ -9,7 +9,7 @@ export const StyledPresentation = styled.div`
   max-width: 1075px;
 
   .lottie-player {
-    margin-top: 15rem;
+    height: 595px;
   }
 
   @media screen and (max-width: 780px) {

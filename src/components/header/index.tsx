@@ -43,7 +43,7 @@ function Header({ projects }: { projects: ProjectWithTechnologies[] }) {
   return (
     <StyledNavigation ref={scrollNavbar}>
       <StyledPicture href="/about">
-        <Image src={pfp0} alt="Lautaro Figueroa" />
+        <Image src={pfp0} alt="Lautaro Figueroa" width={40} height={40} />
         <h3 className={QUITE_MAGICAL.className}>Lautaro Figueroa</h3>
       </StyledPicture>
       <StyledMenu>

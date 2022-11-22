@@ -7,6 +7,7 @@ import { StyledPresentation, TypedContainer } from "./styled-components";
 import Button from "@mui/material/Button";
 import scrollDownImg from "../../images/scrollDown.svg";
 import jsonAnimation from "../../../public/images/static/lottie-working.json";
+import gifAnimation from "../../../public/images/static/lottie-working.gif";
 // Animations
 import Typed from "typed.js";
 import Lottie from "lottie-react";
@@ -19,16 +20,13 @@ type Props = {
 };
 
 function FirstImpression({ currentProject }: Props) {
+  // TODO: Convert the gif to a lottie animation
+  // Couln't find a way to do it because on production the animation is not working
   const typedAnimationEl = useRef(null);
   const typed = useRef<Typed>();
   const scrollTitle = useRef(null); // For scroll down animation
   const myButtons = useRef(null); // For scroll down animation
   const lottieRef = useRef(null);
-
-  // // Lottie animation
-  // useEffect(() => {
-  //   import("@lottiefiles/lottie-player");
-  // }, []);
 
   useEffect(() => {
     // Typed animation
@@ -118,6 +116,7 @@ function FirstImpression({ currentProject }: Props) {
           </div>
         </TypedContainer>
         {/* Lottie player */}
+        {/* <Image src={gifAnimation} alt="Lottie animation" width={446} /> */}
         <Lottie
           loop
           autoplay

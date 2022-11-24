@@ -175,10 +175,10 @@ export const StyledContact = styled(ExtendFlexAttrs)`
 export const StyledBadge = styled(Badge)(() => ({
   "& .MuiBadge-badge": {
     right: -5,
-    padding: "4px", // 1px 0px 0 0px
-    fontSize: "0.715rem",
-    height: 18,
-    minWidth: 18,
+    padding: "3px", // 1px 0px 0 0px
+    fontSize: "0.7rem",
+    // height: 18,
+    // minWidth: 18,
     borderRadius: "50%",
   },
   "&": {

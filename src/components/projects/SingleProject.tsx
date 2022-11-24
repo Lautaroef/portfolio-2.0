@@ -11,12 +11,7 @@ type Props = {
   gothamLsLight: string;
 };
 
-function SingleProject({
-  project,
-  filteredProjects,
-  gothamMedium,
-  gothamLsLight,
-}: Props) {
+function SingleProject({ project, filteredProjects, gothamMedium, gothamLsLight }: Props) {
   const scrollProject = useRef(null);
   const {
     title,
@@ -30,18 +25,19 @@ function SingleProject({
     isPrivate,
   } = project;
 
+  // Scroll animation
   useEffect(() => {
-    // Scroll animation
     async function animate() {
       if (scrollProject.current) {
-        const scrollReveal = (await import("../animations/ScrollReveal"))
-          .default;
+        const scrollReveal = (await import("../animations/ScrollReveal")).default;
         scrollReveal.reveal(scrollProject.current, {
           origin: "top",
           distance: "80px", //100px
           delay: 0, // 150
           duration: 650,
         });
+
+        return () => scrollReveal.destroy();
       }
     }
     animate();
@@ -58,16 +54,9 @@ function SingleProject({
       <div className="box">
         <div>
           <h3 className={gothamMedium}>{title}</h3>
-          {endDate && (
-            <span className={`end-date ${gothamMedium}`}>End date {date}</span>
-          )}
+          {endDate && <span className={`end-date ${gothamMedium}`}>End date {date}</span>}
         </div>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href={projectUrl}
-          className="image-container"
-        >
+        <a target="_blank" rel="noreferrer" href={projectUrl} className="image-container">
           <Image width={469} height={350} src={image} alt={title} />
         </a>
         <div>
@@ -101,12 +90,7 @@ function SingleProject({
             Github <FaLock />
           </button>
         ) : (
-          <a
-            href={codeUrl}
-            target="_blank"
-            rel="noreferrer"
-            className={gothamLsLight}
-          >
+          <a href={codeUrl} target="_blank" rel="noreferrer" className={gothamLsLight}>
             Github
           </a>
         )}

@@ -13,12 +13,15 @@ function Home() {
 export default Home;
 
 /*
-Car Marketplace | https://rumrumcars-a9207.web.app/
+Therapeutical Educational Center | https://sacra.vercel.app/
 Project description:
-• Developed a "Car marketplace" aimed to simulate a rent-a-car business model.
-• Built a user authentication system using Firebase Auth, Google OAuth, and Facebook.
-• Implemented a payment system using PayPal API.
-• Implemented Cloudinary services to 
+• This is a project for a Therapeutical Educational Center. It is a website that shows the services that the center offers, the information, and the location of each center.
+• Integrated Google Maps API and Leaflet library in order to display interactive and highly-responsive geo maps.
+• Implemented Cloudinary services to handle the upload and retrieval of each institution's images.
+• Also used Yup library for input validation.
+• Hosted the Backend using Supabase database management system.
+• Applied software development using React.js, JavaScript, Next.js, Redux, Node.js, Express, PostgreSQL, and Git.
+
 */
 
 /*
@@ -34,7 +37,7 @@ It has a variety of sections that are responsive and interactive, these sections
 It has a smooth scroll effect and features like dark mode and strong SEO optimization.
 
 It consists of 4 unique pages with dynamic content that varies according to the user's choice.
-
+It consists of a Next.js application with server-side rendering and client-side routing with a MongoDB database.
 */
 
 /*

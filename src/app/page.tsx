@@ -22,11 +22,8 @@ Full stack Developer with 3 years of experience | $28.99/hr
 
 
 Example: My professional career has been running on three separate but often closely related tracks: Desktop Application Development, Embedded Software Development and Hardware Development.
-
 In the last couple of years my work has been focused on the first two fields, and most recently on Desktop Application development, VBA development and End-User Support. I have excellent troubleshooting and debugging skills developed over the years of engineering work in various fields.
-
 I am a patient, thorough person with high attention to detail. I can provide consulting, software development, testing/debugging and other services ranging from short one-hour jobs, to full-time every day work, to long-term cooperation and support.
-
 Thank you for visiting my profile and I look forward to hearing from you!
 
 My projects: 
@@ -64,6 +61,7 @@ It has a variety of sections that are responsive and interactive, these sections
 
 It has a smooth scroll effect and features like dark mode and strong SEO optimization.
 
+Added internationalization.
 It consists of 4 unique pages with dynamic content that varies according to the user's choice.
 It consists of a Next.js application with server-side rendering and client-side routing with a MongoDB database.
 */

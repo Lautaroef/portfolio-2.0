@@ -12,6 +12,22 @@ function Home() {
 
 export default Home;
 
+/* 
+
+
+Cover Letter: 
+Hi, if you are interested in solving any web development requirement, then I can be of help, as for the past two and a half years, I have been working as a web developer using HTML5, CSS and JavaScript
+
+Cover Letter: 
+I am interested in working for company shares. I have worked with the latest technologies in order to meet business requirements with a focus on performance and scalability. 
+I have delivered several projects that required full-stack development, including the design and implementation of the front-end structure and the back-end logic.
+
+---
+I have have experience working with remote teams and I am very comfortable with it.
+I am also very flexible with my working hours and I am available to work on your project full-time or part-time.
+---
+*/
+
 /*
 Achieved a performance score of 96 out of 100 and an SEO score of 100/100 according to Google Lighthouse and Vercel engine.
 Achieved a very easy-to-customize template where the client can change the colors, fonts, images, and text with just a few clicks.

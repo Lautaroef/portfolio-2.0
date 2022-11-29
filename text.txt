@@ -1,12 +1,13 @@
-- Car Marketplace ✅
 - Tourism Agency Business ✅
 - Booking Software for the Tourism Industry ✅
+- Car Marketplace ✅
 - Therapeutical Educational Center ✅
 - NFT Marketplace ✅
-- Travel Website ✅
 - Nearby points of interest - widget ✅
-- Cardiologist Landing page ✅
 - Health Insurance ✅
-- Digital Agency Landing ✅ 
-- NaturalMarket Landing page ✅ 
+- Travel Website ✅
 - Smart Landing page ✅ 
+- NaturalMarket Landing page ✅ 
+- Cardiologist Landing page ✅
+- Digital Agency Landing ✅ 
+

@@ -13,6 +13,11 @@ function Home() {
 export default Home;
 
 /* 
+Looking for a HTML/CSS Developer
+We are looking for a HTML/CSS developer for our project. We will provide the details via PM. We will do video interview. No agencies.
+
+Cover letter: (my response)
+If you are looking for a HTML/CSS developer, I am the right person for you. I have 3 years hands-on experience in building responsive applications with HTML/CSS. I have worked on several projects and I am confident that I can deliver the project on time. I am available for a video interview. Please let me know if you are interested.
 
 
 Cover Letter: 

@@ -21,7 +21,8 @@ function Projects({ projects }: { projects: ProjectWithTechnologies[] }) {
   return (
     <StyledProjectsSection>
       <h2 id="my-projects" className={GOTHAM_MEDIUM.className}>
-        My Projects
+        {/* My Projects */}
+        My Works
       </h2>
       <span className="h2-border" />
       <Filter projects={projects} setFilteredProjects={setFilteredProjects} />

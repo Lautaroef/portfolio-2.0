@@ -65,7 +65,7 @@ function Header({ projects }: { projects: ProjectWithTechnologies[] }) {
             badgeContent={(projects && projects.length) || "..."}
             color="primary"
           >
-            Projects
+            Works {/* Projects */}
           </StyledBadge>
         </a>
         <div>

@@ -16,7 +16,8 @@ function HamburgerMenu() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const menuItems: NavBarItem[] = [
     { title: "Home", href: "/" },
-    { title: "Projects", href: "/" },
+    // { title: "Projects", href: "/" },
+    { title: "Works", href: "/" },
     { title: "About Me", href: "/about" },
     { title: "Contact", href: "/contact" },
   ];
